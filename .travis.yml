@@ -1,0 +1,18 @@
+language: node_js
+node_js:
+- lts/*
+install:
+- npm install
+script:
+- npm run build
+after_script:
+- cd dist
+- echo 'notes.thyiad.top' > CNAME
+- git init
+- git add -A
+- git commit -m 'deploy'
+- git push -f "https://${GITHUB_TOKEN}@${GH_REF}" master
+env:
+  global:
+    - GH_REF: github.com/Thyiad/notes.github.io.git
+    - secure: "uhAf/b6TBULEd7DEbT0ggtrZW4ZUW1FxZVlk6mKTpcYdm0Iz0jObLohUPbKxt0uC2Ud5Z1ZAepAuJoPMxf/Ten12s2MW3yp7iihCnLZhE1SHm31mvrv8v0TdcFFKlLPLK/KKh7l1xShJFTVvYyFQfO7dvxdcTCAYmDY3jobPpfAlLdtnWzPN7UijpA3uo/Jp5i+DsNtwVLJQHOfQcO948NILd20PwXY0CbYvNl7MsCtFcFZTxHXt5XTcbOTIpk874Q+6W/qzM95mWgtKSqKLJAjhx4tj6Nbksn7XtFggGP9x0n/EB1Kid8jvX3FZ71rvQwJuHWgXS4XJXKz7Fdl1zYfRlbGifPHpArKfzH7pvae09VvHKG6+gTY28bPeyY8PtWIwmiFLbJHNT6jeKCXpZU34IlIc4lvsT5hgftuqa2yPXCTltYTU4uWR7KhNFLcvsSaxcjFCfKZjGnwcwrTDgGEgJS9DIGprbbZ8t+DSgi3Rsxt/yeT8yzTxyB2ALr+AEc5d7m+Qt4spDcnTpTSPHZJIyRPgOE5VTGV4YxrndqDOJ+NlvqDczCl01XrNXpIlLn+0K4oS0PpoN2WQ6TG7S+BFsgiYglBMg2tuVlXwc9qWybmhx9VFjO9dFZxZQeCHlvnUpVQ8kG5AVz2Ur21WcovzV8hu9UAWNRQEh5YnJoU="

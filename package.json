@@ -1,0 +1,27 @@
+{
+  "name": "notes-github",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vuepress dev docs",
+    "build": "vuepress build docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Thyiad/notes.git"
+  },
+  "author": "Thyiad",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Thyiad/notes/issues"
+  },
+  "homepage": "https://github.com/Thyiad/notes#readme",
+  "devDependencies": {
+    "vuepress": "^1.7.1"
+  },
+  "dependencies": {
+    "vuepress-bar": "^0.3.1"
+  }
+}
