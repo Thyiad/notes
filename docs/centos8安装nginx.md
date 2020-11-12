@@ -1,7 +1,6 @@
 ---
 title: centos8安装nginx
 lang: zh-cn
-sidebar: true
 ---
 
 ### 安装nginx

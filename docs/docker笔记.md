@@ -1,7 +1,6 @@
 ---
 title: docker笔记
 lang: zh-cn
-sidebar: true
 ---
 
 ### 1.yum 安装Docker
