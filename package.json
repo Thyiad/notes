@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "vuepress dev docs",
+    "build:index": "node ./build-index.js",
     "build": "vuepress build docs",
+    "build:all": "node ./build-index.js & vuepress build docs",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -19,6 +21,9 @@
   },
   "homepage": "https://github.com/Thyiad/notes#readme",
   "devDependencies": {
+    "chalk": "^4.1.0",
+    "spinnies": "^0.5.1",
+    "ssh2": "^0.8.9",
     "vuepress": "^1.7.1"
   },
   "dependencies": {

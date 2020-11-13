@@ -1,7 +1,12 @@
 ---
 home: true
-heroImage: /logo.png
 ---
 
-> 说来奇怪，一直用不习惯各种云笔记，最早还有用txt记过笔记，最后上传到了 [github](https://github.com/Thyiad/learn) 
-> 此站用作零散笔记
+- [旧笔记](https://github.com/Thyiad/learn)
+- [centos8安装nginx](/centos8安装nginx.html)
+- [docker笔记](/docker笔记.html)
+- [linux开启sftp](/linux开启sftp.html)
+- [linux笔记](/linux笔记.html)
+- [python](/python.html)
+- [react hooks](/react%20hooks.html)
+- [浏览器进程线程笔记](/浏览器进程线程笔记.html)
