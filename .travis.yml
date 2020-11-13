@@ -11,8 +11,8 @@ after_script:
 - git init
 - git add -A
 - git commit -m 'deploy'
-- git push -f "https://${GITHUB_TOKEN}@${GH_REF}" main
+- git push -f "https://${GITHUB_TOKEN}@${GH_REF}" gh
 env:
   global:
-    - GH_REF: github.com/Thyiad/notes.github.io.git
+    - GH_REF: github.com/Thyiad/notes.git
     - secure: "jbu+gYEnqzkywSz679axmuHeuU9hZhpa0umgd1NRGn4NFPoxDnsaHxek0ZVV+DnYKbTG1N5Q3oN7cponuebl7H1yY4PqJ+gzrb8Yq0qiNSx8HytyB8iJx1Gvazma019BVY3wm495gci0j72ozRFi/2zpV19WKLyhG1NCFtusn4MDBD9tNXk2fVpZpo5onI46qe/MOmmftZ3GMOhW0fnq+tw62ANBtALC3FEQZbJmB98S7xUdSPDF2F8VsM+zWLRr1kx+UKJxM3T9V9jnQqmYfSCKywCcYLdyZVzgGIUbtvRdKiZ6z3SU8OJBvu7X2Cg1ir7VzsMunfLivox5qawkGSrXZ2TR/Mz/zWoKHP7TiUYviw3t3aCn6UlIwPKaNXveYWF6WxfEG1P8ktKKwvTeecDZCl08uPpH7UklJTsOL25/fOyuv9O+TSCcPJen8gmIkhq1qFpGbS5RXhHPG52w/KaM2MeHM5eaoPTpeKNSiYzRAava2bBnd+WnDA+mLbDbCNhPap0QF2pnCT59Mtq5LkY5DWMGYH9ltH8kz54sZsNTBETeA7vLNIpoRTHj5Z7EzqVaDwiWqJas7i3b3vjXAWSeT8iUnhTKX1Rzt4648DfxDJNjqEFzUPj5qLoiIuRH5uXddNls0zMN5rB7QRWhIN8jAc5tXOVLpapOWdeQYrQ="
