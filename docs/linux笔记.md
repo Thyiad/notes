@@ -658,3 +658,11 @@ command > /dev/null # 执行命令，但又不希望在屏幕上显示输出结�
 ``` bash
 . filename  # .号后面一个空格，导入一个脚本文件进来
 ```
+
+### 20.防火墙
+```bash
+systemctl status firewalld  # 防火墙状态
+systemctl start firewalld.service   # 开启防火墙
+systemctl stop firewalld.service    # 关闭防火墙
+systemctl disable firewalld.service # 禁用防火墙
+```
