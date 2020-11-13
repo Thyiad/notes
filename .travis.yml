@@ -12,6 +12,9 @@ after_script:
 - git add -A
 - git commit -m 'deploy'
 - git push -f "https://${GITHUB_TOKEN}@${GH_REF}" gh
+branches:
+  only:
+  - main
 env:
   global:
     - GH_REF: github.com/Thyiad/notes.git
