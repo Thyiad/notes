@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>centos8安装nginx | Thyiad&#39;s notes</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <meta name="description" content="I read, I write">
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.8330207f.js" as="script"><link rel="preload" href="/assets/js/2.6abc7fd4.js" as="script"><link rel="preload" href="/assets/js/8.c3f94301.js" as="script"><link rel="prefetch" href="/assets/js/10.21d20749.js"><link rel="prefetch" href="/assets/js/11.33b30e34.js"><link rel="prefetch" href="/assets/js/12.4b2238ac.js"><link rel="prefetch" href="/assets/js/13.f7770934.js"><link rel="prefetch" href="/assets/js/14.4c21c398.js"><link rel="prefetch" href="/assets/js/15.caa277b9.js"><link rel="prefetch" href="/assets/js/3.6c8dd952.js"><link rel="prefetch" href="/assets/js/4.09fd2c39.js"><link rel="prefetch" href="/assets/js/5.fc791712.js"><link rel="prefetch" href="/assets/js/6.ffe6f60a.js"><link rel="prefetch" href="/assets/js/7.dd4e46e2.js"><link rel="prefetch" href="/assets/js/9.87d19c63.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Thyiad's notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="安装nginx"><a href="#安装nginx" class="header-anchor">#</a> 安装nginx</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>dnf <span class="token function">install</span> nginx
+</code></pre></div><h3 id="启用nginx"><a href="#启用nginx" class="header-anchor">#</a> 启用nginx</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> nginx
+<span class="token function">sudo</span> systemctl start nginx
+</code></pre></div><h3 id="如果需要配置防火墙"><a href="#如果需要配置防火墙" class="header-anchor">#</a> 如果需要配置防火墙</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>firewall-cmd --permanent --zone<span class="token operator">=</span>public --add-service<span class="token operator">=</span>http
+firewall-cmd --permanent --zone<span class="token operator">=</span>public --add-service<span class="token operator">=</span>https
+firewall-cmd --reload
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.8330207f.js" defer></script><script src="/assets/js/2.6abc7fd4.js" defer></script><script src="/assets/js/8.c3f94301.js" defer></script>
+  </body>
+</html>

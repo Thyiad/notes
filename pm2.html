@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>pm2常用命令 | Thyiad&#39;s notes</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <meta name="description" content="I read, I write">
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.8330207f.js" as="script"><link rel="preload" href="/assets/js/2.6abc7fd4.js" as="script"><link rel="preload" href="/assets/js/12.4b2238ac.js" as="script"><link rel="prefetch" href="/assets/js/10.21d20749.js"><link rel="prefetch" href="/assets/js/11.33b30e34.js"><link rel="prefetch" href="/assets/js/13.f7770934.js"><link rel="prefetch" href="/assets/js/14.4c21c398.js"><link rel="prefetch" href="/assets/js/15.caa277b9.js"><link rel="prefetch" href="/assets/js/3.6c8dd952.js"><link rel="prefetch" href="/assets/js/4.09fd2c39.js"><link rel="prefetch" href="/assets/js/5.fc791712.js"><link rel="prefetch" href="/assets/js/6.ffe6f60a.js"><link rel="prefetch" href="/assets/js/7.dd4e46e2.js"><link rel="prefetch" href="/assets/js/8.c3f94301.js"><link rel="prefetch" href="/assets/js/9.87d19c63.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Thyiad's notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="pm2常用命令"><a href="#pm2常用命令" class="header-anchor">#</a> pm2常用命令</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token comment"># Fork mode</span>
+pm2 start app.js --name my-api <span class="token comment"># 命令进程</span>
+<span class="token comment"># Cluster mode</span>
+pm2 start app.js -i <span class="token number">0</span>        <span class="token comment"># 根据当前系统cpu核心数量，来启动进程数量</span>
+pm2 start app.js -i max      <span class="token comment"># 同上，已过时</span>
+pm2 scale app +3             <span class="token comment"># 加多3个进程</span>
+pm2 scale app <span class="token number">2</span>              <span class="token comment"># 变更进程数量到2</span>
+<span class="token comment"># Listing</span>
+pm2 list               <span class="token comment"># 显示所有进程状态</span>
+pm2 jlist              <span class="token comment"># 以 JSON 格式显示所有进程状态</span>
+pm2 prettylist         <span class="token comment"># 以美化后的 JSON 显示所有进程状态</span>
+pm2 describe <span class="token number">0</span>         <span class="token comment"># 显示特定进程的信息</span>
+pm2 monit              <span class="token comment"># 监视所有进程</span>
+<span class="token comment"># Logs</span>
+pm2 logs <span class="token punctuation">[</span>--raw<span class="token punctuation">]</span>       <span class="token comment"># 显示日志</span>
+pm2 flush              <span class="token comment"># 清空所有日志</span>
+pm2 reloadLogs         <span class="token comment"># 重新载入所有日志</span>
+<span class="token comment"># Actions</span>
+pm2 stop all           <span class="token comment"># 停止所有进程</span>
+pm2 restart all        <span class="token comment"># 重新启动所有进程</span>
+pm2 reload all         <span class="token comment"># 重新加载所有</span>
+pm2 stop <span class="token number">0</span>             <span class="token comment"># 停止指定id的进程(id)</span>
+pm2 restart <span class="token number">0</span>          <span class="token comment"># 重起指定id的进程</span>
+pm2 delete <span class="token number">0</span>           <span class="token comment"># 从pm2列表中删除进程</span>
+pm2 delete all         <span class="token comment"># 删除pm2列表中的所有进程</span>
+<span class="token comment"># Misc</span>
+pm2 reset <span class="token operator">&lt;</span>process<span class="token operator">&gt;</span>    <span class="token comment"># 重置元数据</span>
+pm2 updatePM2          <span class="token comment"># 更新内存中的pm2</span>
+pm2 <span class="token function">ping</span>               <span class="token comment"># 确保pm2守护进程已启动</span>
+pm2 sendSignal SIGUSR2 my-app <span class="token comment"># 将系统信号发送到指定应用</span>
+pm2 start app.js --no-daemon    <span class="token comment"># 无守护进程式启动</span>
+pm2 start app.js --no-vizion    <span class="token comment"># 无可视化式启动</span>
+pm2 start app.js --no-autorestart   <span class="token comment"># 不会自动重启应用</span>
+</code></pre></div><h3 id="监听文件"><a href="#监听文件" class="header-anchor">#</a> 监听文件</h3> <div class="language- extra-class"><pre class="language-text"><code>pm2 start app.js --watch
+pm2 stop 0  # 不会停止监听
+pm2 stop 0 --watch  # 会停止监听
+</code></pre></div><h3 id="ecosystem"><a href="#ecosystem" class="header-anchor">#</a> ecosystem</h3> <div class="language- extra-class"><pre class="language-text"><code>pm2 [start|restart|stop|delete] ecosystem.config.js
+# 如果修改了ignore_watch，重启时需要先关闭再启动：
+pm2 stop ecosystem.config.js --watch
+pm2 start ecosystem.config.js ——watch
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.8330207f.js" defer></script><script src="/assets/js/2.6abc7fd4.js" defer></script><script src="/assets/js/12.4b2238ac.js" defer></script>
+  </body>
+</html>
