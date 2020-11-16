@@ -65,3 +65,9 @@ pm2 [start|restart|stop|delete] ecosystem.config.js
 pm2 stop ecosystem.config.js --watch
 pm2 start ecosystem.config.js ——watch
 ```
+
+### 开机自启动
+``` bash
+pm2 startup # 在/etc/init.d/目录下生成pm2-root的启动脚本，且自动将pm2-root设为服务
+pm2 save    # 将当前pm2所运行的应用保存在/root/.pm2/dump.pm2下，当开机重启时，pm2-root服务脚本会到/root/.pm2/dump.pm2下读取应用并启动
+```
