@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>centos8安装nginx | Thyiad&#39;s notes</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <meta name="description" content="I read, I write">
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.ee4c1688.js" as="script"><link rel="preload" href="/assets/js/2.6abc7fd4.js" as="script"><link rel="preload" href="/assets/js/8.f546e8a2.js" as="script"><link rel="prefetch" href="/assets/js/10.4e6340db.js"><link rel="prefetch" href="/assets/js/11.cf785c31.js"><link rel="prefetch" href="/assets/js/12.571e0b58.js"><link rel="prefetch" href="/assets/js/13.27901472.js"><link rel="prefetch" href="/assets/js/14.d4718096.js"><link rel="prefetch" href="/assets/js/15.64e3d11a.js"><link rel="prefetch" href="/assets/js/16.74bb03d4.js"><link rel="prefetch" href="/assets/js/3.0277475e.js"><link rel="prefetch" href="/assets/js/4.09fd2c39.js"><link rel="prefetch" href="/assets/js/5.fc791712.js"><link rel="prefetch" href="/assets/js/6.ffe6f60a.js"><link rel="prefetch" href="/assets/js/7.d755b1f6.js"><link rel="prefetch" href="/assets/js/9.d95ea9c2.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Thyiad's notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="应用更新-可选-但是推荐"><a href="#应用更新-可选-但是推荐" class="header-anchor">#</a> 应用更新（可选，但是推荐）</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>dnf update -y<span class="token punctuation">;</span> <span class="token function">reboot</span>
+</code></pre></div><h3 id="安装-docker-ce"><a href="#安装-docker-ce" class="header-anchor">#</a> 安装 Docker CE</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>dnf list docker-ce
+dnf <span class="token function">install</span> docker-ce --nobest -y
+</code></pre></div><h3 id="设置为服务"><a href="#设置为服务" class="header-anchor">#</a> 设置为服务</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>systemctl start docker
+systemctl <span class="token builtin class-name">enable</span> docker
+</code></pre></div><h3 id="验证docker安装结果"><a href="#验证docker安装结果" class="header-anchor">#</a> 验证docker安装结果</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>docker --version
+</code></pre></div><h3 id="安装-docker-compose"><a href="#安装-docker-compose" class="header-anchor">#</a> 安装 Docker Compose</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>dnf <span class="token function">install</span> <span class="token function">curl</span> -y <span class="token comment"># 如果没有安装curl的话</span>
+<span class="token function">curl</span> -L <span class="token string">&quot;https://github.com/docker/compose/releases/download/1.27.4/docker-compose-<span class="token variable"><span class="token variable">$(</span><span class="token function">uname</span> -s<span class="token variable">)</span></span>-<span class="token variable"><span class="token variable">$(</span><span class="token function">uname</span> -m<span class="token variable">)</span></span>&quot;</span> -o /usr/local/bin/docker-compose    <span class="token comment"># 版本号替换成当前最新的</span>
+<span class="token function">chmod</span> +x /usr/local/bin/docker-compose
+</code></pre></div><h3 id="验证-docker-compose-安装结果"><a href="#验证-docker-compose-安装结果" class="header-anchor">#</a> 验证 docker compose 安装结果</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>docker-compose --version
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.ee4c1688.js" defer></script><script src="/assets/js/2.6abc7fd4.js" defer></script><script src="/assets/js/8.f546e8a2.js" defer></script>
+  </body>
+</html>
