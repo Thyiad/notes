@@ -1,3 +1,8 @@
+---
+title: docker笔记
+lang: zh-cn
+---
+
 ### 1.yum 安装Docker
 ``` bash
 # docker 要求centos系统的内核版本高于3.10
@@ -19,7 +24,7 @@ service docker start    # 启动docker守护进程
 service docker stop # 停止docker守护进程
 ```
 
-###3.容器使用
+### 3.容器使用
 
 ``` bash
 docker run -t -i  运行容器  
@@ -86,9 +91,11 @@ docker build -t="thyiad/static_web:v1" .
 ```
 
 ### 7.volume命令
+```
+docker volume ls
+docker volume inspect --format '{{.Mountpoint}}' xxx_wp_certs
+```
 
-- docker volume ls
-- docker volume inspect --format '{{.Mountpoint}}' xxx_wp_certs
 > 获取这个卷在宿主机中的实际路径
 
 ### 7.docker compose
@@ -101,8 +108,9 @@ docker ps
 
 
 
-### dockerfile里面的命令
+# dockerfile里面的命令
 
+```
 FROM
 MAINTAINER
 ARG
@@ -111,17 +119,24 @@ WORKDIR
 COPY
 VOLUME
 ENTRYPOINT
+```
 
-### 编译dockerfile
+# 编译dockerfile
+```
 docker build -t="thyiad/my-frp:v1" .
+```
 
-### 查看卷
+# 查看卷
+```
 docker volume ls
 docker volume inspect --format '{{ .Mountpoint }}' 自动前缀_卷名
 
 apt-get update
 docker exec
+```
 
 ### docker-compose 强制重新编译
 
+```
 docker-compose up -d --no-deps --build <service_name>
+```
