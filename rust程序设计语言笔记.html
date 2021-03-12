@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>rust程序设计语言笔记 | Thyiad&#39;s notes</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <meta name="description" content="I read, I write">
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.44bb133c.js" as="script"><link rel="preload" href="/assets/js/2.6abc7fd4.js" as="script"><link rel="preload" href="/assets/js/18.c52b3d52.js" as="script"><link rel="prefetch" href="/assets/js/10.b3500f6f.js"><link rel="prefetch" href="/assets/js/11.96043595.js"><link rel="prefetch" href="/assets/js/12.0e28d31f.js"><link rel="prefetch" href="/assets/js/13.edd24a46.js"><link rel="prefetch" href="/assets/js/14.354e8bd3.js"><link rel="prefetch" href="/assets/js/15.2388886c.js"><link rel="prefetch" href="/assets/js/16.66015028.js"><link rel="prefetch" href="/assets/js/17.38a1484f.js"><link rel="prefetch" href="/assets/js/19.3a86355f.js"><link rel="prefetch" href="/assets/js/20.8c158b29.js"><link rel="prefetch" href="/assets/js/3.b27e4937.js"><link rel="prefetch" href="/assets/js/4.09fd2c39.js"><link rel="prefetch" href="/assets/js/5.fc791712.js"><link rel="prefetch" href="/assets/js/6.ffe6f60a.js"><link rel="prefetch" href="/assets/js/7.3f2a9c56.js"><link rel="prefetch" href="/assets/js/8.5d748ebd.js"><link rel="prefetch" href="/assets/js/9.c38d618a.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Thyiad's notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="安装"><a href="#安装" class="header-anchor">#</a> 安装</h3> <p>mac:</p> <div class="language-bash extra-class"><pre class="language-bash"><code>$ <span class="token function">curl</span> --proto <span class="token string">'=https'</span> --tlsv1.2 https://sh.rustup.rs -sSf <span class="token operator">|</span> <span class="token function">sh</span>
+</code></pre></div><p>windows:
+https://www.rust-lang.org/install.html 下载安装</p> <p>rust命令：</p> <div class="language-bash extra-class"><pre class="language-bash"><code>rustup update   <span class="token comment"># 更新</span>
+rustup self uninstall   <span class="token comment"># 卸载</span>
+rustc --version <span class="token comment"># 当前版本</span>
+</code></pre></div><h3 id="编译运行"><a href="#编译运行" class="header-anchor">#</a> 编译运行</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>rustc main.rs   <span class="token comment"># 编译成2进制可执行文件（名字为main，windows上为main.exe）</span>
+</code></pre></div><h3 id="cargo"><a href="#cargo" class="header-anchor">#</a> cargo</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>cargo --version
+cargo build <span class="token comment"># 编译</span>
+cargo build --release   <span class="token comment"># release构建</span>
+cargo run   <span class="token comment"># 编译并运行</span>
+cargo check <span class="token comment"># 仅检查，不编译</span>
+cargo update    <span class="token comment"># 更新依赖，仅小版本更新</span>
+</code></pre></div><h3 id="语法"><a href="#语法" class="header-anchor">#</a> 语法</h3> <p>导入库</p> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token keyword">use</span> <span class="token namespace">std<span class="token punctuation">::</span></span>io<span class="token punctuation">;</span>
+</code></pre></div><p>创建变量</p> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token keyword">let</span> <span class="token keyword">mut</span> guess <span class="token operator">=</span> <span class="token class-name">String</span><span class="token punctuation">::</span><span class="token function">new</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>  <span class="token comment">// 双冒号：静态函数。变量默认不可变，mut代表变量可变</span>
+</code></pre></div><p>传参</p> <div class="language-rust extra-class"><pre class="language-rust"><code><span class="token namespace">io<span class="token punctuation">::</span></span><span class="token function">stdin</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">read_line</span><span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token keyword">mut</span> guess<span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">expect</span><span class="token punctuation">(</span><span class="token string">&quot;Failed to read line&quot;</span><span class="token punctuation">)</span><span class="token punctuation">;</span>    <span class="token comment">// &amp;表示该参数是一个引用，mut代表该参数可变</span>
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.44bb133c.js" defer></script><script src="/assets/js/2.6abc7fd4.js" defer></script><script src="/assets/js/18.c52b3d52.js" defer></script>
+  </body>
+</html>
