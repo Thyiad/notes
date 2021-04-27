@@ -6,7 +6,7 @@
     <title>编译 | Thyiad&#39;s notes</title>
     <meta name="generator" content="VuePress 1.7.1">
     <meta name="description" content="I read, I write">
-    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.0d062a84.js" as="script"><link rel="preload" href="/assets/js/2.4cec8200.js" as="script"><link rel="preload" href="/assets/js/13.050ef5a6.js" as="script"><link rel="prefetch" href="/assets/js/10.c556e963.js"><link rel="prefetch" href="/assets/js/11.4d984aee.js"><link rel="prefetch" href="/assets/js/12.6baf891e.js"><link rel="prefetch" href="/assets/js/14.52669448.js"><link rel="prefetch" href="/assets/js/15.4c140842.js"><link rel="prefetch" href="/assets/js/16.ba292595.js"><link rel="prefetch" href="/assets/js/17.3ddaacb1.js"><link rel="prefetch" href="/assets/js/18.dae9d5f5.js"><link rel="prefetch" href="/assets/js/19.9c10ab5f.js"><link rel="prefetch" href="/assets/js/20.04ef644a.js"><link rel="prefetch" href="/assets/js/21.05c195da.js"><link rel="prefetch" href="/assets/js/3.a73aa29d.js"><link rel="prefetch" href="/assets/js/4.09fd2c39.js"><link rel="prefetch" href="/assets/js/5.fc791712.js"><link rel="prefetch" href="/assets/js/6.ffe6f60a.js"><link rel="prefetch" href="/assets/js/7.918238cf.js"><link rel="prefetch" href="/assets/js/8.f546e8a2.js"><link rel="prefetch" href="/assets/js/9.c38d618a.js">
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.c3f0a7ea.js" as="script"><link rel="preload" href="/assets/js/2.4cec8200.js" as="script"><link rel="preload" href="/assets/js/13.501348da.js" as="script"><link rel="prefetch" href="/assets/js/10.c556e963.js"><link rel="prefetch" href="/assets/js/11.4d984aee.js"><link rel="prefetch" href="/assets/js/12.6baf891e.js"><link rel="prefetch" href="/assets/js/14.52669448.js"><link rel="prefetch" href="/assets/js/15.4c140842.js"><link rel="prefetch" href="/assets/js/16.ba292595.js"><link rel="prefetch" href="/assets/js/17.3ddaacb1.js"><link rel="prefetch" href="/assets/js/18.dae9d5f5.js"><link rel="prefetch" href="/assets/js/19.9c10ab5f.js"><link rel="prefetch" href="/assets/js/20.04ef644a.js"><link rel="prefetch" href="/assets/js/21.05c195da.js"><link rel="prefetch" href="/assets/js/3.a73aa29d.js"><link rel="prefetch" href="/assets/js/4.09fd2c39.js"><link rel="prefetch" href="/assets/js/5.fc791712.js"><link rel="prefetch" href="/assets/js/6.ffe6f60a.js"><link rel="prefetch" href="/assets/js/7.918238cf.js"><link rel="prefetch" href="/assets/js/8.f546e8a2.js"><link rel="prefetch" href="/assets/js/9.c38d618a.js">
     <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
   </head>
   <body>
@@ -17,7 +17,7 @@ go build hello.go   // 编译go语言代码，生成二进制文件
 <span class="token keyword">var</span> s1<span class="token punctuation">,</span> s2 <span class="token builtin">string</span> <span class="token operator">=</span> <span class="token string">'1'</span><span class="token punctuation">,</span> <span class="token string">'2'</span>
 <span class="token keyword">var</span> i <span class="token operator">:=</span> <span class="token number">1</span>
 <span class="token comment">// 这种不带声明格式的只能在函数体中使用</span>
-a<span class="token punctuation">,</span> b <span class="token operator">:=</span> <span class="token number">123</span><span class="token punctuation">,</span> <span class="token string">'123'</span>
+a<span class="token punctuation">,</span> b <span class="token operator">:=</span> <span class="token number">123</span><span class="token punctuation">,</span> <span class="token string">&quot;123&quot;</span>
 </code></pre></div><p>常量</p> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">const</span> a <span class="token builtin">int</span> <span class="token operator">=</span> <span class="token number">1</span>
 <span class="token comment">// 枚举</span>
 <span class="token keyword">const</span> <span class="token punctuation">(</span>
@@ -65,13 +65,52 @@ sum <span class="token operator">:=</span> <span class="token number">0</span>
 <span class="token keyword">for</span> <span class="token boolean">_</span><span class="token punctuation">,</span> num <span class="token operator">:=</span> <span class="token keyword">range</span> nums<span class="token punctuation">{</span>
     sum <span class="token operator">+=</span> num
 <span class="token punctuation">}</span>
-</code></pre></div><h3 id="集合"><a href="#集合" class="header-anchor">#</a> 集合</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token keyword">var</span> m1 <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token builtin">string</span>
+</code></pre></div><h3 id="集合"><a href="#集合" class="header-anchor">#</a> 集合</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token comment">// 创建集合</span>
+<span class="token keyword">var</span> m1 <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token builtin">string</span>
+m1 <span class="token operator">=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">)</span>
+m1 <span class="token operator">:=</span> <span class="token keyword">map</span><span class="token punctuation">[</span><span class="token builtin">string</span><span class="token punctuation">]</span><span class="token builtin">string</span><span class="token punctuation">{</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;a&quot;</span><span class="token punctuation">,</span> <span class="token string">&quot;b&quot;</span><span class="token punctuation">:</span> <span class="token string">&quot;b&quot;</span><span class="token punctuation">}</span>
+m1<span class="token punctuation">[</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">]</span> <span class="token operator">=</span> <span class="token string">&quot;a&quot;</span>
+<span class="token function">delete</span><span class="token punctuation">(</span>m1<span class="token punctuation">,</span> <span class="token string">&quot;a&quot;</span><span class="token punctuation">)</span>
 </code></pre></div><h3 id="类型转换"><a href="#类型转换" class="header-anchor">#</a> 类型转换</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token function">float32</span><span class="token punctuation">(</span>xxx<span class="token punctuation">)</span>
-<span class="token string">``</span>·
-### 接口
-好怪异的接口
-### 设置代理
-</code></pre></div><h1 id="启用-go-modules-功能"><a href="#启用-go-modules-功能" class="header-anchor">#</a> 启用 Go Modules 功能</h1> <p>go env -w GO111MODULE=on</p> <h1 id="配置-goproxy-环境变量-以下三选一"><a href="#配置-goproxy-环境变量-以下三选一" class="header-anchor">#</a> 配置 GOPROXY 环境变量，以下三选一</h1> <h1 id="_1-七牛-cdn"><a href="#_1-七牛-cdn" class="header-anchor">#</a> 1. 七牛 CDN</h1> <p>go env -w  GOPROXY=https://goproxy.cn,direct</p> <h1 id="_2-阿里云"><a href="#_2-阿里云" class="header-anchor">#</a> 2. 阿里云</h1> <p>go env -w GOPROXY=https://mirrors.aliyun.com/goproxy/,direct</p> <h1 id="_3-官方"><a href="#_3-官方" class="header-anchor">#</a> 3. 官方</h1> <p>go env -w  GOPROXY=https://goproxy.io,direct</p> <div class="language- extra-class"><pre class="language-text"><code></code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.0d062a84.js" defer></script><script src="/assets/js/2.4cec8200.js" defer></script><script src="/assets/js/13.050ef5a6.js" defer></script>
+</code></pre></div><h3 id="接口"><a href="#接口" class="header-anchor">#</a> 接口</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token comment">// 定义接口</span>
+<span class="token keyword">type</span> Phone <span class="token keyword">interface</span> <span class="token punctuation">{</span>
+	<span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 定义struct</span>
+<span class="token keyword">type</span> NokiaPhone <span class="token keyword">struct</span> <span class="token punctuation">{</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 定义实现</span>
+<span class="token keyword">func</span> <span class="token punctuation">(</span>nokiaPhone NokiaPhone<span class="token punctuation">)</span> <span class="token function">call</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
+	fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span><span class="token string">&quot;I am Nokia, I can call you!&quot;</span> <span class="token operator">+</span> nokiaPhone<span class="token punctuation">.</span>title<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+</code></pre></div><h3 id="错误处理"><a href="#错误处理" class="header-anchor">#</a> 错误处理</h3> <h3 id="并发"><a href="#并发" class="header-anchor">#</a> 并发</h3> <div class="language-go extra-class"><pre class="language-go"><code><span class="token comment">// 使用关键字go调用一个函数，开启goroutine</span>
+<span class="token comment">// 其实就是开启一个新线程</span>
+<span class="token keyword">go</span> <span class="token function">f</span><span class="token punctuation">(</span><span class="token string">&quot;a&quot;</span><span class="token punctuation">)</span>
+<span class="token comment">// 声明通道</span>
+ch <span class="token operator">:=</span> <span class="token function">make</span><span class="token punctuation">(</span><span class="token keyword">chan</span> <span class="token builtin">int</span><span class="token punctuation">)</span>
+<span class="token comment">// 传递数据</span>
+ch <span class="token operator">&lt;-</span> v <span class="token comment">// 把v发送到通道ch</span>
+v <span class="token operator">:=</span> <span class="token operator">&lt;-</span>ch   <span class="token comment">// 从ch接收数据赋值给v</span>
+<span class="token comment">// 遍历通道数据</span>
+<span class="token keyword">for</span> i <span class="token operator">:=</span> <span class="token keyword">range</span> ch <span class="token punctuation">{</span>
+    fmt<span class="token punctuation">.</span><span class="token function">Println</span><span class="token punctuation">(</span>i<span class="token punctuation">)</span>
+<span class="token punctuation">}</span>
+<span class="token comment">// 发送端会一直阻塞直到发出数据</span>
+<span class="token comment">// 接收端会一直阻塞直到接收到数据</span>
+<span class="token comment">// 如何持续接收数据？如何像event的方式一样接收数据？</span>
+<span class="token comment">// 感觉没有async和await那样直观、方便</span>
+</code></pre></div><h3 id="设置代理"><a href="#设置代理" class="header-anchor">#</a> 设置代理</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>启用 Go Modules 功能
+go <span class="token function">env</span> -w <span class="token assign-left variable">GO111MODULE</span><span class="token operator">=</span>on
+<span class="token comment"># 配置 GOPROXY 环境变量，以下三选一</span>
+<span class="token comment"># 1. 七牛 CDN</span>
+go <span class="token function">env</span> -w  <span class="token assign-left variable">GOPROXY</span><span class="token operator">=</span>https://goproxy.cn,direct
+<span class="token comment"># 2. 阿里云</span>
+go <span class="token function">env</span> -w <span class="token assign-left variable">GOPROXY</span><span class="token operator">=</span>https://mirrors.aliyun.com/goproxy/,direct
+<span class="token comment"># 3. 官方</span>
+go <span class="token function">env</span> -w  <span class="token assign-left variable">GOPROXY</span><span class="token operator">=</span>https://goproxy.io,direct
+</code></pre></div><h3 id="mod"><a href="#mod" class="header-anchor">#</a> mod</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>go mod init helloworld  // 初始化module
+go mod tidy // 下载缺少的包
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.c3f0a7ea.js" defer></script><script src="/assets/js/2.4cec8200.js" defer></script><script src="/assets/js/13.501348da.js" defer></script>
   </body>
 </html>
