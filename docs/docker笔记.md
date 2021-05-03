@@ -116,7 +116,7 @@ MAINTAINER
 ARG
 RUN
 WORKDIR
-COPY
+COPY  # copy 宿主目录（./xx，编译目录下面的文件、文件夹）到镜像目录
 VOLUME
 ENTRYPOINT
 ```
@@ -139,4 +139,15 @@ docker exec
 
 ```
 docker-compose up -d --no-deps --build <service_name>
+```
+
+### docker-compose 一些配置
+
+```
+port:
+  - 宿主端口:镜像端口
+expose:
+  - 8080 # 给其他服务可以访问的接口
+volumes:
+  - 宿主目录:镜像目录
 ```
