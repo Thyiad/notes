@@ -6,7 +6,7 @@
     <title>docker笔记 | Thyiad&#39;s notes</title>
     <meta name="generator" content="VuePress 1.7.1">
     <meta name="description" content="I read, I write">
-    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.c3f0a7ea.js" as="script"><link rel="preload" href="/assets/js/2.4cec8200.js" as="script"><link rel="preload" href="/assets/js/12.6baf891e.js" as="script"><link rel="prefetch" href="/assets/js/10.c556e963.js"><link rel="prefetch" href="/assets/js/11.4d984aee.js"><link rel="prefetch" href="/assets/js/13.501348da.js"><link rel="prefetch" href="/assets/js/14.52669448.js"><link rel="prefetch" href="/assets/js/15.4c140842.js"><link rel="prefetch" href="/assets/js/16.ba292595.js"><link rel="prefetch" href="/assets/js/17.3ddaacb1.js"><link rel="prefetch" href="/assets/js/18.dae9d5f5.js"><link rel="prefetch" href="/assets/js/19.9c10ab5f.js"><link rel="prefetch" href="/assets/js/20.04ef644a.js"><link rel="prefetch" href="/assets/js/21.05c195da.js"><link rel="prefetch" href="/assets/js/3.a73aa29d.js"><link rel="prefetch" href="/assets/js/4.09fd2c39.js"><link rel="prefetch" href="/assets/js/5.fc791712.js"><link rel="prefetch" href="/assets/js/6.ffe6f60a.js"><link rel="prefetch" href="/assets/js/7.918238cf.js"><link rel="prefetch" href="/assets/js/8.f546e8a2.js"><link rel="prefetch" href="/assets/js/9.c38d618a.js">
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.8af555a8.js" as="script"><link rel="preload" href="/assets/js/2.4cec8200.js" as="script"><link rel="preload" href="/assets/js/12.b834128f.js" as="script"><link rel="prefetch" href="/assets/js/10.c556e963.js"><link rel="prefetch" href="/assets/js/11.4d984aee.js"><link rel="prefetch" href="/assets/js/13.501348da.js"><link rel="prefetch" href="/assets/js/14.52669448.js"><link rel="prefetch" href="/assets/js/15.4c140842.js"><link rel="prefetch" href="/assets/js/16.ba292595.js"><link rel="prefetch" href="/assets/js/17.3ddaacb1.js"><link rel="prefetch" href="/assets/js/18.dae9d5f5.js"><link rel="prefetch" href="/assets/js/19.9c10ab5f.js"><link rel="prefetch" href="/assets/js/20.04ef644a.js"><link rel="prefetch" href="/assets/js/21.05c195da.js"><link rel="prefetch" href="/assets/js/3.a73aa29d.js"><link rel="prefetch" href="/assets/js/4.09fd2c39.js"><link rel="prefetch" href="/assets/js/5.fc791712.js"><link rel="prefetch" href="/assets/js/6.ffe6f60a.js"><link rel="prefetch" href="/assets/js/7.300e5465.js"><link rel="prefetch" href="/assets/js/8.f546e8a2.js"><link rel="prefetch" href="/assets/js/9.c38d618a.js">
     <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
   </head>
   <body>
@@ -70,7 +70,7 @@ MAINTAINER
 ARG
 RUN
 WORKDIR
-COPY
+COPY  # copy 宿主目录（./xx，编译目录下面的文件、文件夹）到镜像目录
 VOLUME
 ENTRYPOINT
 </code></pre></div><h1 id="编译dockerfile"><a href="#编译dockerfile" class="header-anchor">#</a> 编译dockerfile</h1> <div class="language- extra-class"><pre class="language-text"><code>docker build -t=&quot;thyiad/my-frp:v1&quot; .
@@ -79,7 +79,13 @@ docker volume inspect --format '{{ .Mountpoint }}' 自动前缀_卷名
 apt-get update
 docker exec
 </code></pre></div><h3 id="docker-compose-强制重新编译"><a href="#docker-compose-强制重新编译" class="header-anchor">#</a> docker-compose 强制重新编译</h3> <div class="language- extra-class"><pre class="language-text"><code>docker-compose up -d --no-deps --build &lt;service_name&gt;
+</code></pre></div><h3 id="docker-compose-一些配置"><a href="#docker-compose-一些配置" class="header-anchor">#</a> docker-compose 一些配置</h3> <div class="language- extra-class"><pre class="language-text"><code>port:
+  - 宿主端口:镜像端口
+expose:
+  - 8080 # 给其他服务可以访问的接口
+volumes:
+  - 宿主目录:镜像目录
 </code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
-    <script src="/assets/js/app.c3f0a7ea.js" defer></script><script src="/assets/js/2.4cec8200.js" defer></script><script src="/assets/js/12.6baf891e.js" defer></script>
+    <script src="/assets/js/app.8af555a8.js" defer></script><script src="/assets/js/2.4cec8200.js" defer></script><script src="/assets/js/12.b834128f.js" defer></script>
   </body>
 </html>
