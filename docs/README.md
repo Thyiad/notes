@@ -15,5 +15,6 @@ home: true
 - [深入浅出Node.js笔记](/深入浅出Node.js笔记.html)
 - [css新属性](/css新属性.html)
 - [chrome-devtools](/chrome-devtools.html)
+- [开发环境](/开发环境.html)
 - [go语言笔记](/go语言笔记.html)
 - [rust程序设计语言笔记](/rust程序设计语言笔记.html)

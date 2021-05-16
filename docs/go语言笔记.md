@@ -58,6 +58,24 @@ balance := [...]float32(1,2,3,4,5)
 balance := [5]float32(1:2,3:6)
 ```
 
+### 切片
+其实就是动态数组，go中数组长度不可改变
+```go
+var slice1 []type = make([]type, len)
+var s []int = []int{}
+s:=[]int{1,2,3}
+s := arr[startIndex:endIndex]
+```
+
+### 范围
+``` go
+nums := []int{1,2,3}
+sum := 0
+for _, num := range nums{
+    sum += num
+}
+
+```
 ### 指针
 ``` go
 var ptr *int    // 指针变量
@@ -80,25 +98,6 @@ book1 := Book{title: "go", author: "go"}
 // 访问方式一模一样，结构指针看起来很鸡肋
 var bookPoint *Book = &book1
 bookPoint.title
-```
-
-### 切片
-其实就是动态数组，go中数组长度不可改变
-```go
-var slice1 []type = make([]type, len)
-var s []int = []int{}
-s:=[]int{1,2,3}
-s := arr[startIndex:endIndex]
-```
-
-### 范围
-``` go
-nums := []int{1,2,3}
-sum := 0
-for _, num := range nums{
-    sum += num
-}
-
 ```
 
 ### 集合
@@ -180,7 +179,28 @@ go env -w  GOPROXY=https://goproxy.io,direct
 ```
 
 ### mod
+基本命令：
 ``` bash
 go mod init helloworld  // 初始化module
 go mod tidy // 下载缺少的包
+go list -m -u all   // 检查可以升级的package
+go get -u   // 升级所有依赖
+go get package@version  // 升级指定包到指定版本
+```
+发布包：
+``` bash
+go mod init github.com/Thyiad/gopackage // 初始化module
+git tag v0.0.1
+git push --tags    // push到github上
+git checkout v0.0.1 // 签出v0.0.1，但因为不是branch，提交后只能通过确切的提交哈希访问
+```
+
+### 零散点
+
+导入同名包：
+``` go
+import (
+    "text/template"
+    htemplate "html/template" // this is now imported as htemplate
+)
 ```
