@@ -24,15 +24,26 @@ sudo yum install -y mongodb-org
 
 ### 启动 ``mongodb``
 
-```
+``` bash
 systemctl start mongod
 systemctl enable mongod
 systemctl status mongod
 ```
 
-### 如果开启了防火墙
+### 如果有unit的报错
+
+``Unit systemctl.service not found``
+运行这个代码：
 
 ```
+systemctl daemon-reload # 重新加载某个服务的配置文件
+```
+
+如果新安装了一个服务，归属于 systemctl 管理，想让新服务的服务程序配置文件生效，需重新加载
+
+### 如果开启了防火墙
+
+``` bash
 firewall-cmd --zone=public --add-port=27017/tcp --permanent
 firewall-cmd --reload
 ```
