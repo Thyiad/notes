@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>centos8安装redis6 | Thyiad&#39;s notes</title>
+    <meta name="generator" content="VuePress 1.7.1">
+    <meta name="description" content="I read, I write">
+    <link rel="preload" href="/assets/css/0.styles.992cb7aa.css" as="style"><link rel="preload" href="/assets/js/app.9a0ffe37.js" as="script"><link rel="preload" href="/assets/js/2.4cec8200.js" as="script"><link rel="preload" href="/assets/js/11.6546405e.js" as="script"><link rel="prefetch" href="/assets/js/10.5ea4eaa6.js"><link rel="prefetch" href="/assets/js/12.795cd15e.js"><link rel="prefetch" href="/assets/js/13.78c1ddd4.js"><link rel="prefetch" href="/assets/js/14.a971e097.js"><link rel="prefetch" href="/assets/js/15.08255b1c.js"><link rel="prefetch" href="/assets/js/16.916bddcf.js"><link rel="prefetch" href="/assets/js/17.a4807901.js"><link rel="prefetch" href="/assets/js/18.42b42556.js"><link rel="prefetch" href="/assets/js/19.0db9978e.js"><link rel="prefetch" href="/assets/js/20.8f36f9e8.js"><link rel="prefetch" href="/assets/js/21.accb4255.js"><link rel="prefetch" href="/assets/js/22.8d16ee02.js"><link rel="prefetch" href="/assets/js/23.5d9d9a96.js"><link rel="prefetch" href="/assets/js/24.f3b4c744.js"><link rel="prefetch" href="/assets/js/25.fd18e375.js"><link rel="prefetch" href="/assets/js/26.a70a2cf9.js"><link rel="prefetch" href="/assets/js/27.27532a81.js"><link rel="prefetch" href="/assets/js/3.ee7ffdbc.js"><link rel="prefetch" href="/assets/js/4.09fd2c39.js"><link rel="prefetch" href="/assets/js/5.fc791712.js"><link rel="prefetch" href="/assets/js/6.ffe6f60a.js"><link rel="prefetch" href="/assets/js/7.77579281.js"><link rel="prefetch" href="/assets/js/8.3e386512.js"><link rel="prefetch" href="/assets/js/9.171a9f32.js">
+    <link rel="stylesheet" href="/assets/css/0.styles.992cb7aa.css">
+  </head>
+  <body>
+    <div id="app" data-server-rendered="true"><div class="theme-container no-sidebar"><header class="navbar"><div class="sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="img" viewBox="0 0 448 512" class="icon"><path fill="currentColor" d="M436 124H12c-6.627 0-12-5.373-12-12V80c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12zm0 160H12c-6.627 0-12-5.373-12-12v-32c0-6.627 5.373-12 12-12h424c6.627 0 12 5.373 12 12v32c0 6.627-5.373 12-12 12z"></path></svg></div> <a href="/" class="home-link router-link-active"><!----> <span class="site-name">Thyiad's notes</span></a> <div class="links"><div class="search-box"><input aria-label="Search" autocomplete="off" spellcheck="false" value=""> <!----></div> <!----></div></header> <div class="sidebar-mask"></div> <aside class="sidebar"><!---->  <!----> </aside> <main class="page"> <div class="theme-default-content content__default"><h3 id="centos8未升级到centos-stream"><a href="#centos8未升级到centos-stream" class="header-anchor">#</a> centos8未升级到centos stream</h3> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token function">sudo</span> dnf -y update
+<span class="token function">sudo</span> dnf <span class="token function">install</span> -y <span class="token function">vim</span>
+<span class="token function">sudo</span> dnf <span class="token function">install</span> https://rpms.remirepo.net/enterprise/remi-release-8.rpm -y
+<span class="token function">sudo</span> dnf module <span class="token builtin class-name">enable</span> redis:remi-6.2 -y
+<span class="token function">sudo</span> dnf <span class="token function">install</span> redis
+<span class="token function">sudo</span> systemctl start redis
+<span class="token function">sudo</span> systemctl <span class="token builtin class-name">enable</span> redis
+<span class="token function">sudo</span> systemctl status redis
+<span class="token function">sudo</span> <span class="token function">vim</span> /etc/redis/redis.conf
+<span class="token function">sudo</span> systemctl restart redis
+</code></pre></div><p>来源：<a href="https://citizix.com/how-to-install-configure-redis-6-on-rocky-linux-centos-8/" target="_blank" rel="noopener noreferrer">https://citizix.com/how-to-install-configure-redis-6-on-rocky-linux-centos-8/<span><svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" x="0px" y="0px" viewBox="0 0 100 100" width="15" height="15" class="icon outbound"><path fill="currentColor" d="M18.8,85.1h56l0,0c2.2,0,4-1.8,4-4v-32h-8v28h-48v-48h28v-8h-32l0,0c-2.2,0-4,1.8-4,4v56C14.8,83.3,16.6,85.1,18.8,85.1z"></path> <polygon fill="currentColor" points="45.7,48.7 51.3,54.3 77.2,28.5 77.2,37.2 85.2,37.2 85.2,14.9 62.8,14.9 62.8,22.9 71.5,22.9"></polygon></svg> <span class="sr-only">(opens new window)</span></span></a></p> <p>redis 的一些常用配置：</p> <div class="language-bash extra-class"><pre class="language-bash"><code><span class="token builtin class-name">bind</span> <span class="token number">0.0</span>.0.0
+requirepass j2GfJuLFR8
+appendonly <span class="token function">yes</span>
+appendfilename <span class="token string">&quot;appendonly.aof&quot;</span>
+</code></pre></div><h3 id="centos8-stream-安装redis6"><a href="#centos8-stream-安装redis6" class="header-anchor">#</a> centos8 stream 安装redis6</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>dnf module -y <span class="token function">install</span> redis:6
+systemctl start redis
+systemctl <span class="token builtin class-name">enable</span> redis
+systemctl status redis
+<span class="token function">sudo</span> <span class="token function">vim</span> /etc/redis.conf
+<span class="token function">sudo</span> systemctl restart redis
+</code></pre></div><h3 id="如果开启了防火墙"><a href="#如果开启了防火墙" class="header-anchor">#</a> 如果开启了防火墙</h3> <div class="language-bash extra-class"><pre class="language-bash"><code>firewall-cmd --add-service<span class="token operator">=</span>redis --permanent
+firewall-cmd --reload
+</code></pre></div></div> <footer class="page-edit"><!----> <!----></footer> <!----> </main></div><div class="global-ui"></div></div>
+    <script src="/assets/js/app.9a0ffe37.js" defer></script><script src="/assets/js/2.4cec8200.js" defer></script><script src="/assets/js/11.6546405e.js" defer></script>
+  </body>
+</html>
