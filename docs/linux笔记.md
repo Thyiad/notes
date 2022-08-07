@@ -21,6 +21,11 @@ cat /etc/redhat-release
 ```
 df -hl
 ```
+- 查看环境变量
+``` bash
+cat /proc/<pid for your process>/environ |tr "\0" "\n"
+strings /proc/<your service pid>/environ
+```
 
 ### 1.linux系统启动过程
 
