@@ -14,6 +14,7 @@ home: true
 - [centos8安装nginx](/centos8安装nginx.html)
 - [centos8升级到centos stream](/centos8升级到centos%20stream.html)
 - [centos8安装redis6](/centos8安装redis6.html)
+- [centos8安装mongodb](/centos8安装mongodb.html)
 - [linux开启sftp](/linux开启sftp.html)
 - [python](/python.html)
 - [centos8安装docker](/centos8安装docker.html)
