@@ -2,11 +2,10 @@
 home: true
 ---
 
-- [linux定时任务crontab](/linux定时任务crontab.html)
 - [快捷键](/快捷键.html)
+- [开发环境](/开发环境.html)
 - [rust程序设计语言笔记](/rust程序设计语言笔记.html)
 - [go语言笔记](/go语言笔记.html)
-- [开发环境](/开发环境.html)
 - [chrome-devtools](/chrome-devtools.html)
 - [css新属性](/css新属性.html)
 - [深入浅出Node.js笔记](/深入浅出Node.js笔记.html)
@@ -17,6 +16,7 @@ home: true
 - [centos8安装redis6](/centos8安装redis6.html)
 - [centos8安装mongodb](/centos8安装mongodb.html)
 - [linux开启sftp](/linux开启sftp.html)
+- [linux定时任务crontab](/linux定时任务crontab.html)
 - [python](/python.html)
 - [centos8安装docker](/centos8安装docker.html)
 - [docker笔记](/docker笔记.html)
