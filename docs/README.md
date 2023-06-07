@@ -17,6 +17,7 @@ home: true
 - [centos8安装mongodb](/centos8安装mongodb.html)
 - [linux开启sftp](/linux开启sftp.html)
 - [linux定时任务crontab](/linux定时任务crontab.html)
+- [mac nginx开机启动](/mac%20nginx开机启动.html)
 - [python](/python.html)
 - [centos8安装docker](/centos8安装docker.html)
 - [docker笔记](/docker笔记.html)
