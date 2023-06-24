@@ -32,16 +32,16 @@ appendonly yes
 appendfilename "appendonly.aof"
 ```
 
-### centos8 stream 安装redis6
+### centos stream 9 安装redis6
 
 ``` bash
-dnf module -y install redis:6
+dnf install redis
 
 systemctl start redis
 systemctl enable redis
 systemctl status redis
 
-sudo vim /etc/redis.conf
+sudo vim /etc/redis/redis.conf
 sudo systemctl restart redis
 ```
 
