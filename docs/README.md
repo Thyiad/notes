@@ -4,7 +4,7 @@ home: true
 
 - [快捷键](/快捷键.html)
 - [开发环境](/开发环境.html)
-- [rust程序设计语言笔记](/rust程序设计语言笔记.html)
+- [rust语言圣经笔记](/rust语言圣经笔记.html)
 - [go语言笔记](/go语言笔记.html)
 - [chrome-devtools](/chrome-devtools.html)
 - [css新属性](/css新属性.html)

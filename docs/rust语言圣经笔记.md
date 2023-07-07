@@ -1,13 +1,13 @@
 ---
-title: rust程序设计语言笔记
+title: rust语言圣经笔记
 lang: zh-cn
 ---
 
-### 安装
+# 安装
 
 mac:
 ```bash
-$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh  # 安装完之后需要按提示配置环境变量
 
 ```
 windows:
@@ -20,12 +20,38 @@ rustup self uninstall   # 卸载
 rustc --version # 当前版本
 ```
 
-### 编译运行
+# 镜像加速
+使用字节跳动提供的镜像：
+
+crates.io镜像
+```
+[source.crates-io]
+# To use sparse index, change 'rsproxy' to 'rsproxy-sparse'
+replace-with = 'rsproxy'
+
+[source.rsproxy]
+registry = "https://rsproxy.cn/crates.io-index"
+[source.rsproxy-sparse]
+registry = "sparse+https://rsproxy.cn/index/"
+
+[registries.rsproxy]
+index = "https://rsproxy.cn/crates.io-index"
+
+[net]
+git-fetch-with-cli = true
+```
+
+如果卡住：
+> 强行停止正在构建的进程，例如杀掉 IDE 使用的 rust-analyzer 插件进程，然后删除 $HOME/.cargo/.package_cache 目录
+
+rustup镜像
+
+# 编译运行
 ```bash
 rustc main.rs   # 编译成2进制可执行文件（名字为main，windows上为main.exe）
 ```
 
-### cargo
+# cargo
 ```bash
 cargo --version
 cargo build # 编译
@@ -35,7 +61,7 @@ cargo check # 仅检查，不编译
 cargo update    # 更新依赖，仅小版本更新
 ```
 
-### 语法
+# 语法
 
 导入库
 ```rust
